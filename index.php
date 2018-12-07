@@ -51,17 +51,17 @@ $socket_context = stream_context_create($socket_options);
 echo "Source: ".$rand_ip.PHP_EOL;
 
 // $dns = dns_get_record($whois_server, DNS_AAAA);
-$dnsResults = $dnsResolver->query($whois_server, 'AAAA');
+$dnsResults = $dnsResolver->query($whois_server, 'A');
 $whois_server_ip = null;
 foreach ($dnsResults->answer as $answer) {
-    if ($answer->type === 'AAAA') {
+    if ($answer->type === 'A') {
         $whois_server_ip = $answer->address;
         break;
     }
 }
 
 if (empty($whois_server_ip) === true) {
-    die('Could not get an AAAA for '.$whois_server);
+    die('Could not get an A for '.$whois_server);
 }
 
 $whois_server_ip = "[" . $whois_server_ip . "]";
