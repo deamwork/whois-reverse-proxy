@@ -1,6 +1,6 @@
 <?php
 // We need to also include the netdns2 PEAR lib
-require_once 'Net/DNS2.php';
+require_once './vendor/autoload.php';
 
 $dnsResolver = new Net_DNS2_Resolver(['nameservers' => ['1.1.1.1', '1.0.0.1', '8.8.4.4', '208.67.222.222', '208.67.220.220']]);
 
